@@ -1,6 +1,6 @@
 {
   "name": "codemirror-mode-ada",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple ada mode for codemirror ide",
   "main": "ada.js",
   "scripts": {

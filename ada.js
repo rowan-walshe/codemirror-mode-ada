@@ -10,10 +10,10 @@
 
 CodeMirror.defineSimpleMode("ada",{
   start: [
-    // single and double quote string
-    {regex: /'.'/, token: "string-2"},
     // character
-    {regex: /"/, token: " string", next: "string"},
+    {regex: /'.'/, token: "string-2"},
+    // string
+    {regex: /"([^"]|"")*"/, token: "string"},
     // numbers
     {regex: /([1-9]|1[0-6])#[0-9a-f]([_]?[0-9a-f])*/i, token: "number"},
     {regex: /[+-]?\d([_]?\d)*(\.\d([_]?\d)*)?([eE][+-]?\d([_]?\d)*)?/, token: "number"},
@@ -34,10 +34,6 @@ CodeMirror.defineSimpleMode("ada",{
     // comments
     {regex: /--.*/, token: "comment"},
     {regex: /\w+/, token: null}
-  ],
-  string: [
-    {regex: /"/, token: "string", next: "start"},
-    {regex: /(?:[^\\"]|\\(?:.|$))*/, token: "string"}
   ],
   meta: {
     electricInput: /^\s*(begin|end)$/,
